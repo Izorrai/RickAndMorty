@@ -54,14 +54,20 @@ La aplicación consume la [Rick and Morty API](https://rickandmortyapi.com/), ut
   - Lista de personajes que aparecen
   - Paginación de personajes (12 por página)
 
-### 5. Interfaz de Usuario
+### 5. Batalla de favoritos
+- Juego estilo Tinder
+    - Puedes elegir matar o que el personaje se matenga vivo
+    - Animaciones y transiciones suaves
+    - Indicadores de estado y progreso
+
+### 6. Interfaz de Usuario
 - Diseño responsive
 - Navegación inferior
 - Animaciones y transiciones suaves
 - Feedback visual para todas las acciones
 - Indicadores de estado y progreso
 
-### 6. Características Técnicas
+### 7. Características Técnicas
 - Persistencia de datos en localStorage
 - Manejo de estados con React hooks
 - Lazy loading de imágenes
