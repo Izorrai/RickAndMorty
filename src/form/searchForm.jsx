@@ -35,7 +35,7 @@ const QuizSearch = () => {
       getOptions: (chars) => {
         const species = new Set(chars.map(char => char.species));
         const options = Array.from(species).map(spec => {
-          let emoji = '👽'; // Alien por defecto
+          let emoji = '👽'; 
           switch(spec.toLowerCase()) {
             case 'human':
               emoji = '👤';
@@ -98,7 +98,7 @@ const QuizSearch = () => {
         const options = Array.from(origins)
           .filter(origin => origin && origin !== 'unknown')
           .map(origin => {
-            let emoji = '🌍'; // Emoji por defecto
+            let emoji = '🌍'; 
             if (origin.toLowerCase().includes('earth')) {
               emoji = '🌎';
             } else if (origin.toLowerCase().includes('planet')) {

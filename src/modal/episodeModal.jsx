@@ -18,7 +18,7 @@ const EpisodeModal = ({ episodeUrl, onClose, isWatched, onToggleWatched }) => {
         const data = await response.json();
         setEpisode(data);
 
-        // Fetch characters that appear in this episode
+       
         const charactersData = await Promise.all(
           data.characters.map(url => fetch(url).then(res => res.json()))
         );
@@ -87,6 +87,14 @@ const EpisodeModal = ({ episodeUrl, onClose, isWatched, onToggleWatched }) => {
           >
             {isWatched ? '✓ Episodio visto' : 'Marcar como visto'}
           </button>
+          <a 
+          href={`https://pepinillo-rick.web.app/rym/?=${episode.episode.substring(1, 3)}&${episode.episode.substring(4)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="view-episode"
+          >
+        Ver capítulo
+        </a>
         </div>
 
         <div className="episode-modal-body">

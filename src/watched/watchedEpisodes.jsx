@@ -152,7 +152,7 @@ const WatchedEpisodes = () => {
               className="toggle-season-button"
               onClick={(e) => toggleSeasonWatched(seasonCode, e)}
             >
-              {getSeasonProgress(seasonCode) === 100 ? 'Desmarcar temporada' : 'Marcar temporada'}
+              {getSeasonProgress(seasonCode) === 100 ? 'Desmarcar temporada' : 'Marcar temporada como vista'}
             </button>
           </div>
 

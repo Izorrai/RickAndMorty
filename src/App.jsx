@@ -48,21 +48,22 @@ function App() {
             <SearchIcon />
             <span className="nav-text">Buscar</span>
           </NavLink>
-          
-          <NavLink to="/favorites" className={({isActive}) => `nav-item ${isActive ? 'active' : ''}`}>
-            <span className="nav-icon">★</span>
-            <span className="nav-text">Favoritos</span>
-          </NavLink>
-          
+
           <NavLink to="/search" className={({isActive}) => `nav-item ${isActive ? 'active' : ''}`}>
             <GameIcon />
             <span className="nav-text">Juego</span>
           </NavLink>
-          
+                                     
           <NavLink to="/watched" className={({isActive}) => `nav-item ${isActive ? 'active' : ''}`}>
             <span className="nav-icon">✓</span>
             <span className="nav-text">Vistos</span>
           </NavLink>
+
+          <NavLink to="/favorites" className={({isActive}) => `nav-item ${isActive ? 'active' : ''}`}>
+            <span className="nav-icon">★</span>
+            <span className="nav-text">Favoritos</span>
+          </NavLink>
+
         </nav>
       </div>
     </Router>
