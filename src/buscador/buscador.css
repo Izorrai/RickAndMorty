@@ -1,0 +1,380 @@
+/* Estilos globales */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+ 
+/* Layout principal */
+.main-container {
+  padding-bottom: calc(60px + 1rem);
+  min-height: calc(100vh - 60px);
+  overflow-x: hidden;
+}
+ 
+/* Navegación inferior */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1000;
+  height: 60px;
+  width: 100%;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #9ca3af;
+  transition: all 0.2s ease;
+  padding: 0.25rem;
+}
+
+.nav-item.active {
+  color: #111827;
+}
+
+.nav-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.nav-svg-icon {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 0.25rem;
+  color: currentColor;
+}
+
+.nav-text {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Contenedor principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sección de búsqueda */
+.search-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 50vh;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1f2937;
+}
+
+.search-container {
+  margin-bottom: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 15px;
+}
+
+.search-input-wrapper {
+  position: relative;
+  max-width: 600px;
+  width: 100%;
+}
+
+.search-input {
+  width: 100%;
+  padding: 1rem;
+  padding-left: 2.5rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 0.75rem;
+  font-size: 1.1rem;
+  transition: all 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  border-color: #3b82f6;
+}
+
+/* Ícono de búsqueda */
+.search-icon::before {
+  content: '';
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  border: 2px solid #9ca3af;
+  border-radius: 50%;
+}
+
+.search-icon::after {
+  content: '';
+  position: absolute;
+  left: 1.75rem;
+  top: 50%;
+  width: 7px;
+  height: 2px;
+  background: #9ca3af;
+  transform: rotate(45deg);
+  transform-origin: left center;
+}
+
+/* Mensajes */
+.loading-message {
+  text-align: center;
+  color: #3b82f6;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.error-message {
+  color: #ef4444;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.empty-message {
+  text-align: center;
+  color: #6b7280;
+  margin-top: 2rem;
+  font-size: 1.1rem;
+}
+
+/* Grid de resultados */
+.results-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.results-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.characters-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 0 15px;
+}
+
+/* Tarjetas de personajes */
+.character-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  background: white;
+  position: relative;
+}
+
+.favorite-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.favorite-button:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transform: scale(1.1);
+}
+
+.favorite-button.active {
+  color: #f59e0b;
+}
+
+.character-image {
+  width: 100%;
+  height: 16rem;
+  object-fit: cover;
+}
+
+.character-info {
+  padding: 1.25rem;
+}
+
+.character-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+  color: #1f2937;
+}
+
+.character-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Badges y estados */
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  display: inline-block;
+  font-weight: 500;
+}
+
+.status-alive {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.status-dead {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.status-unknown {
+  background-color: #f3f4f6;
+  color: #1f2937;
+}
+
+ /* Lista de episodios */
+.episodes-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+}
+
+.episode-link {
+  background: none;
+  border: none;
+  color: #3b82f6;
+  cursor: pointer;
+  padding: 2px 5px;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.episode-link:hover {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.episode-link.watched {
+  color: #10b981;
+  font-weight: 500;
+}
+
+/* Media queries */
+@media (min-width: 768px) {
+  .characters-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .characters-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .bottom-nav {
+    height: 50px;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .nav-svg-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .nav-text {
+    font-size: 0.7rem;
+  }
+
+  .main-container {
+    padding-bottom: calc(50px + 0.5rem);
+    min-height: calc(100vh - 50px);
+  }
+
+  .container {
+    padding: 0.5rem;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .search-input {
+    font-size: 1rem;
+    padding: 0.75rem;
+    padding-left: 2.25rem;
+    width: 80%; /* Ahora ocupa el 100% del ancho disponible */
+    max-width: 80%; /* Asegura que ocupe todo el ancho */
+    margin: 0 auto; /* Centra el input en la pantalla */
+  }
+
+  .search-icon::before {
+    left: 0.75rem;
+    width: 12px;
+    height: 12px;
+  }
+
+  .search-icon::after {
+    left: 1.5rem;
+    width: 6px;
+  }
+
+  .character-card {
+    border-radius: 0.5rem;
+  }
+
+  .character-image {
+    height: 12rem;
+  }
+
+  .character-info {
+    padding: 1rem;
+  }
+
+  .character-name {
+    font-size: 1.1rem;
+  }
+}

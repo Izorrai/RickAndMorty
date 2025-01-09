@@ -1,0 +1,140 @@
+.favorites-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.favorites-title {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.favorites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 10px;
+}
+
+.favorite-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.favorite-card:hover {
+    transform: translateY(-5px);
+}
+
+.remove-favorite {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+    z-index: 1;
+}
+
+.remove-favorite:hover {
+    background: rgba(255, 0, 0, 0.7);
+}
+
+.favorite-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.favorite-info {
+    padding: 15px;
+}
+
+.favorite-name {
+    font-size: 1.2em;
+    margin: 0 0 10px 0;
+    color: white;
+}
+
+.favorite-details {
+    color: #e2e8f0;
+}
+
+.favorite-details p {
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.favorite-details span:first-child {
+    font-weight: bold;
+    color: #8b939c;
+}
+
+.status-badge {
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.9em;
+}
+
+.status-alive {
+    background-color: rgba(39, 174, 96, 0.2);
+    color: #27ae60;
+}
+
+.status-dead {
+    background-color: rgba(231, 76, 60, 0.2);
+    color: #e74c3c;
+}
+
+.status-unknown {
+    background-color: rgba(189, 195, 199, 0.2);
+    color: #bdc3c7;
+}
+
+.empty-favorites {
+    text-align: center;
+    padding: 40px;
+    color: #8b939c;
+    font-size: 1.2em;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+    .favorites-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 15px;
+    }
+
+    .favorites-title {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .favorites-container {
+        padding: 10px;
+    }
+
+    .favorites-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}

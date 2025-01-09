@@ -1,0 +1,197 @@
+.episode-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.episode-modal-content {
+  background-color: white;
+  border-radius: 1rem;
+  width: 800px;
+  height: 800px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.episode-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s;
+  z-index: 1;
+}
+
+.episode-modal-close:hover {
+  background-color: #f3f4f6;
+  color: #000;
+}
+
+.episode-modal-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.episode-modal-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  padding-right: 2rem;
+  color: #1f2937;
+}
+
+.episode-modal-info {
+  margin-bottom: 1rem;
+}
+
+.episode-modal-info p {
+  margin: 0.5rem 0;
+  color: #4b5563;
+}
+
+.episode-modal-info strong {
+  color: #1f2937;
+}
+
+.watch-toggle-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: white;
+  border: 2px solid #10b981;
+  border-radius: 0.5rem;
+  color: #10b981;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.watch-toggle-button:hover {
+  background-color: #10b981;
+  color: white;
+}
+
+.watch-toggle-button.watched {
+  background-color: #10b981;
+  color: white;
+}
+
+.watch-toggle-button.watched:hover {
+  background-color: #059669;
+  border-color: #059669;
+}
+
+.episode-modal-body {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.episode-modal-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+.episode-characters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+.episode-character-card {
+  text-align: center;
+}
+
+.episode-character-image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.episode-character-name {
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin: 0;
+}
+
+.episode-modal-loading {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+}
+
+.episode-modal-error {
+  color: #ef4444;
+  text-align: center;
+  padding: 1rem;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.pagination-button {
+  background: none;
+  border: 2px solid #3b82f6;
+  color: #3b82f6;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.pagination-button:hover:not(:disabled) {
+  background: #3b82f6;
+  color: white;
+}
+
+.pagination-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: #9ca3af;
+  color: #9ca3af;
+}
+
+.pagination-info {
+  color: #4b5563;
+  font-weight: 500;
+}
+
+@media (max-width: 860px) {
+  .episode-modal-content {
+    width: calc(100% - 40px);
+    height: calc(100vh - 40px);
+    margin: 20px;
+  }
+}
