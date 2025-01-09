@@ -3,6 +3,7 @@ import RickAndMortySearch from '../src/buscador/buscador';
 import RickAndMortyFormSearch from '../src/form/searchForm';
 import Favorites from '../src/favorites/favorites';
 import WatchedEpisodes from '../src/watched/watchedEpisodes';
+import TinderFavorites from './favoriteGame/favoriteGame';
 import './App.css';
 
 // SVG Components
@@ -41,6 +42,7 @@ function App() {
           <Route path="/search" element={<RickAndMortyFormSearch />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/watched" element={<WatchedEpisodes />} />
+          <Route path="/favoritesgame" element={<TinderFavorites />} />
         </Routes>
 
         <nav className="bottom-nav">
@@ -57,6 +59,11 @@ function App() {
           <NavLink to="/watched" className={({isActive}) => `nav-item ${isActive ? 'active' : ''}`}>
             <span className="nav-icon">✓</span>
             <span className="nav-text">Vistos</span>
+          </NavLink>
+
+          <NavLink to="/favoritesgame" className={({isActive}) => `nav-item ${isActive ? 'active' : ''}`}>
+            <span className="nav-icon">⚔</span>
+            <span className="nav-text">Batalla</span>
           </NavLink>
 
           <NavLink to="/favorites" className={({isActive}) => `nav-item ${isActive ? 'active' : ''}`}>

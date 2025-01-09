@@ -172,6 +172,7 @@
 .view-details,
 .view-episode {
     padding: 0.5rem;
+    width: 119px;
     border-radius: 0.5rem;
     border: none;
     cursor: pointer;

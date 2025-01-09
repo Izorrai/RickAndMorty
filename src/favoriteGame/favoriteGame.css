@@ -1,0 +1,271 @@
+/* Container principal */
+.favorites-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.favorites-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.favorites-header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* Grid de batalla */
+.battle-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .battle-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+    }
+}
+
+/* Contenedor de la tarjeta */
+.character-card-container {
+    position: relative;
+    margin-bottom: 4rem;
+    perspective: 1000px;
+}
+
+/* Tarjeta de personaje */
+.battle-card {
+    background: white;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    user-select: none;
+    touch-action: pan-y pinch-zoom;
+    cursor: grab;
+    will-change: transform;
+    transition: transform 0.3s ease;
+}
+
+.battle-card:active {
+    cursor: grabbing;
+}
+
+.battle-card.exiting-left {
+    transform: translate(-150%, 0) rotate(-30deg) !important;
+    opacity: 0;
+}
+
+.battle-card.exiting-right {
+    transform: translate(150%, 0) rotate(30deg) !important;
+    opacity: 0;
+}
+
+/* Imagen del personaje */
+.character-image {
+    width: 100%;
+    height: 16rem;
+    object-fit: cover;
+}
+
+/* Información del personaje */
+.character-info {
+    padding: 1rem;
+}
+
+.character-name {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.character-species,
+.character-status {
+    color: #666;
+    margin-bottom: 0.25rem;
+}
+
+/* Overlay de estado */
+.status-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 2;
+    transition: background-color 0.2s ease;
+}
+
+.dragging-right {
+    transform: rotate(5deg) !important;
+}
+
+.dragging-right .status-overlay {
+    background: rgba(34, 197, 94, 0.3);
+}
+
+.dragging-left {
+    transform: rotate(-5deg) !important;
+}
+
+.dragging-left .status-overlay {
+    background: rgba(239, 68, 68, 0.3);
+}
+
+/* Texto de estado */
+.status-text {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: scale(0.8) rotate(-30deg);
+    transition: all 0.3s ease;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.625rem;
+}
+
+.status-text.like {
+    color: #22c55e;
+    border: 4px solid #22c55e;
+}
+
+.status-text.nope {
+    color: #ef4444;
+    border: 4px solid #ef4444;
+}
+
+.dragging-right .status-text.like,
+.dragging-left .status-text.nope {
+    opacity: 1;
+    transform: scale(1) rotate(-30deg);
+}
+
+/* Botones de acción */
+.action-buttons {
+    position: absolute;
+    bottom: -2rem;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.action-buttons button {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.action-buttons button:hover {
+    transform: scale(1.1);
+}
+
+.reject-button {
+    background: #ef4444;
+    color: white;
+}
+
+.reject-button:hover {
+    background: #dc2626;
+}
+
+.like-button {
+    background: #22c55e;
+    color: white;
+}
+
+.like-button:hover {
+    background: #16a34a;
+}
+
+/* Instrucciones y contador */
+.instructions {
+    text-align: center;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.remaining-count {
+    text-align: center;
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+/* Vista del ganador */
+.winner-display {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.winner-card {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.winner-card .battle-card {
+    box-shadow: 0 8px 16px rgba(34, 197, 94, 0.2);
+    border: 2px solid #22c55e;
+}
+
+.winner-card .character-name {
+    color: #22c55e;
+}
+
+/* Animación de entrada para el ganador */
+@keyframes winnerEntrance {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.winner-display {
+    animation: winnerEntrance 0.5s ease-out forwards;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .status-text {
+        font-size: 2rem;
+    }
+    
+    .action-buttons button {
+        width: 3rem;
+        height: 3rem;
+    }
+    
+    .character-image {
+        height: 12rem;
+    }
+    
+    .character-info {
+        padding: 0.75rem;
+    }
+    
+    .character-name {
+        font-size: 1rem;
+    }
+}
